@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to ECR...
+      - $(aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 139401680302.dkr.ecr.ap-south-1.amazonaws.com)
+      - REPO=139401680302.dkr.ecr.ap-south-1.amazonaws.com/knownasproto
+      - TAG=latest
+  build:
+    commands:
+      - echo Building Docker image...
+      - docker build -t $REPO:$TAG .
+  post_build:
+    commands:
+      - echo Pushing Docker image to ECR...
+      - docker push $REPO:$TAG
+      - echo "{\"imageUri\":\"$REPO:$TAG\"}" > imageDetail.json
+
+artifacts:
+  files:
+    - imageDetail.json
+
