@@ -22,7 +22,7 @@ phases:
       - docker push $REPO:latest
       - docker push $REPO:$IMAGE_TAG
       - echo Writing imagedefinitions.json...
-      - printf '[{"name":"knownasproto","imageUri":"%s"}]' "$REPO:$IMAGE_TAG" > imagedefinitions.json
+      - printf '[{"name":"nginx-cicd","imageUri":"%s"}]' "$REPO:$IMAGE_TAG" > imagedefinitions.json
 
 artifacts:
   files:
