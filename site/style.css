@@ -1,12 +1,12 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #111;
+  background-color: #115;
   color: #fff;
 }
 
 .hero {
-  background: url('bikes/ducati.jpg') no-repeat center center/cover;
+  background: url('cars/ferrari.jpg') no-repeat center center/cover;
   height: 30vh;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ body {
   color: #ccc;
 }
 
-.bike-gallery {
+.car-gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -36,7 +36,7 @@ body {
   background: #1a1a1a;
 }
 
-.bike-card {
+.car-card {
   background: #222;
   border-radius: 12px;
   padding: 1rem;
@@ -45,7 +45,7 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-.bike-card img {
+.car-card img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 1rem;
