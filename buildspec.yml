@@ -7,23 +7,25 @@ phases:
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 139401680302.dkr.ecr.ap-south-1.amazonaws.com
       - REPO=139401680302.dkr.ecr.ap-south-1.amazonaws.com/knownasproto
       - COMMIT_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - LATEST_TAG=latest
+      - IMAGE_URI=$REPO:$COMMIT_TAG
 
   build:
     commands:
       - echo Building Docker image...
-      - docker build -t $REPO:$COMMIT_TAG .
-      - docker tag $REPO:$COMMIT_TAG $REPO:$LATEST_TAG
+      - docker build -t $IMAGE_URI .
+      - docker tag $IMAGE_URI $REPO:latest
 
   post_build:
     commands:
       - echo Pushing Docker images to ECR...
-      - docker push $REPO:$COMMIT_TAG
-      - docker push $REPO:$LATEST_TAG
+      - docker push $IMAGE_URI
+      - docker push $REPO:latest
       - echo Writing imagedefinitions.json...
-      - printf '[{"name":"knownasproto","imageUri":"%s"}]' $REPO:$COMMIT_TAG > imagedefinitions.json
+      - echo "[{\"name\":\"knownasproto\",\"imageUri\":\"$IMAGE_URI\"}]" > imagedefinitions.json
+      - cat imagedefinitions.json
 
 artifacts:
   files:
     - imagedefinitions.json
+
 
