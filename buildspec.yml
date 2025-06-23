@@ -17,8 +17,8 @@ phases:
     commands:
       - echo Pushing Docker image to ECR...
       - docker push $REPO:$TAG
-      - echo "{\"imageUri\":\"$REPO:$TAG\"}" > imageDetail.json
+      - echo "{\"imageUri\":\"$REPO:$TAG\"}" > imagedefinitions.json
 
 artifacts:
   files:
-    - imageDetail.json
+    - imagedefinitions.json
