@@ -1,67 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My First DevOps Project</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #004080;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-    main {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    h1, h2 {
-      margin-top: 0;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motorcycle Showcase</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header>
-    <h1>Welcome to My First DevOps Project 🚀</h1>
+  <header class="hero">
+    <h1>🏍️ Motorcycle Showcase</h1>
+    <p>Explore the most iconic rides in the world.</p>
   </header>
 
-  <main>
-    <h2>What I Did</h2>
-    <ul>
-      <li>📦 Built a Docker image using <code>nginx:alpine</code></li>
-      <li>🧱 Created a static HTML website</li>
-      <li>☁️ Uploaded my image to Docker Hub</li>
-      <li>📡 Deployed the container on AWS ECS using Fargate</li>
-    </ul>
+  <section class="bike-gallery">
+    <div class="bike-card">
+      <img src="bikes/hayabusa.webp" alt="Ducati Panigale">
+      <h2>Haya Busa 2025</h2>
+      <p> Japanese creation powered by a 1340cc, 4-stroke, liquid-cooled, inline-four engine that produces 190 bhp and 142 Nm of torque.</p>
+    </div>
 
-    <h2>What's Next</h2>
-    <p>
-      I plan to learn and explore CI/CD, monitoring with CloudWatch, and automated infrastructure with Terraform and deep dive into k8!
-    </p>
-  </main>
+    <div class="bike-card">
+      <img src="bikes/yamaha.avif" alt="Yamaha R1">
+      <h2>Yamaha YZF-R1</h2>
+      <p>A Japanese track weapon with MotoGP DNA and agile handling.</p>
+    </div>
+
+    <div class="bike-card">
+      <img src="bikes/harley.avif" alt="Harley Davidson">
+      <h2>Harley-Davidson Iron 883</h2>
+      <p>Classic American cruiser with attitude and low-end torque.</p>
+    </div>
+  </section>
 
   <footer>
-    <p>Follow my DevOps journey on LinkedIn ✨</p>
+    <p>Built with 🛠️ for CI/CD demo – Update and auto-deploy using AWS CodePipeline</p>
   </footer>
-
 </body>
 </html>
-
